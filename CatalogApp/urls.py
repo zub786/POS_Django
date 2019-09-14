@@ -8,7 +8,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='home/homepage.html'), name="homepage"),
+    path('', TemplateView.as_view(template_name='home/posDashboard.html'), name="homepage"),
     # url('', admin.site.urls),
     # path('admin/doc/', include('django.contrib.admindocs.urls')),
     # url(r'^about/', include(('cofeehouse.about.urls', 'about'),  namespace='about')),
