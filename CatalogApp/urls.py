@@ -9,10 +9,5 @@ PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name='home/posDashboard.html'), name="homepage"),
-    # url('', admin.site.urls),
-    # path('admin/doc/', include('django.contrib.admindocs.urls')),
-    # url(r'^about/', include(('cofeehouse.about.urls', 'about'),  namespace='about')),
-    # url(r'^stores/', include(('cofeehouse.stores.urls', 'stores'), namespace='store')),
-    # url(r'^contact/', include(('cofeehouse.contactus.urls', 'contactus'), namespace='contactus')),
-    # url(r'^rest-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^categories/', include(('categories.urls', 'categories'), namespace='categories')),
 ]
