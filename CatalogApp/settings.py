@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.admindocs',
     # 'rest_framework.authtoken',
     # 'rest_auth',
+    'users',
+    'categories',
+    'products',
 
 ]
 
