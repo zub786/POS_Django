@@ -1,0 +1,31 @@
+
+{% extends 'shared/_Layout.html' %}
+
+
+{% block content %}
+
+<body>
+{% load static from staticfiles %}
+
+<div class="container">
+    <hr>
+     <a class="btn btn-primary" href="/categories/index">View All</a> | <a class="btn btn-secondary" href="/">Home</a>
+<h2>Fill your details</h2>
+
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+
+  <table>
+    {{form.as_table}}
+  </table>
+  <input class="btn btn-primary" type="submit" value="Save">
+
+</form>
+
+   <a class="btn btn-primary" href="/categories/index">View Categories</a>
+   <a class="btn btn-primary" href="/categories/create">Add New</a>
+</div>
+
+</body>
+
+{% endblock %}
