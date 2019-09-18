@@ -46,6 +46,24 @@ def create(request):
         form = CategoryForm()
     return render(request, 'categories/create.html', {'form': form})
 
+def edit(request, id):
+    if request.method == 'POST':
+        form = CategoryForm(request.POST, request.FILES)
+        if form.is_valid():
+            categoryToEdit = Category.objects.get(id=id)
+            categoryToEdit.categoryName = form.cleaned_data['categoryName']
+            categoryToEdit.save()
+            # messages.add_message(request, messages.SUCCESS, 'Contact has updated successfully.')
+            # return HttpResponseRedirect('/contact/contactconfirmation')
+            return HttpResponseRedirect('/categories/index')
+        else:
+            pass
+            return render(request, 'categories/edit.html', {'form': form})
+
+    else:
+        categoryToEdit = Category.objects.get(id=id)
+        form = CategoryForm(initial={'categoryName': categoryToEdit.categoryName})
+        return render(request, 'categories/edit.html', {'form': form})
 
 def save_uploaded_file_to_media_root(f):
     with open('%s%s' % (settings.MEDIA_ROOT, f.name), 'wb+') as destination:

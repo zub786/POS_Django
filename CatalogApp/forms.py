@@ -7,9 +7,8 @@ class CategoryForm(forms.ModelForm):
         model = Category
         fields = '__all__'
         # widgets = {
-        #     'name': models.CharField(max_length=25),
-        #     'comment': forms.Textarea(attrs={'cols': 100, 'rows': 40})
-        # }
+        #     'categoryName': forms.TextInput(attrs={'class': 'myfieldclass'}),
+        # },
         labels = {
             'categoryName': 'Category Name',
         }
@@ -21,7 +20,11 @@ class CategoryForm(forms.ModelForm):
         #         'max_length': "Name can only be 25 characters in length"
         #     }
         # }
-        # field_classes = {
-        #                     'email': EmailCoffeehouseFormField
-        #                 },
+        field_classes = {
+                            'categoryName': 'form-control'
+                        },
         localized_fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+            super(CategoryForm, self).__init__(*args, **kwargs)
+            self.fields['categoryName'].widget.attrs.update({'class': 'form-control'})
