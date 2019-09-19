@@ -6,7 +6,8 @@ from django.db import models
 class Product(models.Model):
     id = models.AutoField(primary_key=True)# Added by default, not required explicitly
     productName = models.CharField(max_length=30)
-    productPrice = models.IntegerField()
+    productPrice = models.FloatField()
+    category_id = models.IntegerField()
     # categoryId = models.ForeignKey(
     #     'categories',
     #     on_delete=models.CASCADE,

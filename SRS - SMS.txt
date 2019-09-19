@@ -1,0 +1,20 @@
+manages User Roles
+manages users
+
+=======================================
+
+mamage course/programs
+manages Durations
+
+manage students
+
+===========================================
+
+manage subjects
+
+Manage Techers
+
+assign subjects to teacher
+
+==================================
+assign teacher to student
