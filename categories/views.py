@@ -65,6 +65,13 @@ def edit(request, id):
         form = CategoryForm(initial={'categoryName': categoryToEdit.categoryName})
         return render(request, 'categories/edit.html', {'form': form})
 
+
+def delete(request, id):
+    Category.objects.get(id=id).delete()
+    # messages.add_message(request, messages.SUCCESS, 'Contact has deleted successfully.')
+    return HttpResponseRedirect('/categories/index')
+
+
 def save_uploaded_file_to_media_root(f):
     with open('%s%s' % (settings.MEDIA_ROOT, f.name), 'wb+') as destination:
         for chunk in f.chunks():
